@@ -21,18 +21,20 @@ export_all_accounts_in_non_internal_safes.pl
 
 This perl script will export all accounts from non CyberArk internal safes.
 
-You only need to change the below parameters to your own information.
-
-
-my $CYBR_URL = "https://192.168.203.11";
-
-my $CYBR_username = "administrator";
-
-my $CYBR_password = "Cyberark1";
-
 #############################################
 
 
+----------------------------------------------
+
+export_all_accounts_in_non_internal_safes.pl
+----------------------------------------------
+
+############################################
+import all accounts in csv file.
+The file format should be same as the export_all_accounts_in_non_internal_safes.pl exported file.
+############################################
+
+----------------------------------------------
 
 perl_bulk_add_epv_users.pl
 ----------------------------------------------
