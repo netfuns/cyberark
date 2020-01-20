@@ -5,7 +5,6 @@ use LWP::UserAgent;
 use HTTP::Cookies;
 use HTTP::Headers;
 use HTTP::Response;
-use Encode;
 use URI::Escape;
 use URI::URL;
 use JSON;

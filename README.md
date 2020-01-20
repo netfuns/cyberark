@@ -1,4 +1,17 @@
 These Perl scripts are used for operate CyberArk Core PAS solution.
+First of all, you should prepare the perl ENV before you run the scripts.
+For windows OS, you should download and install ActivePerl.
+Then run command 'perl -MCPAN -e shell' in CMD with administrator's role.
+Install the CPAN with 'install' command like below samples:
+
+install LWP
+install Encode
+install HTTP::Cookies
+install URI::Escape
+install URI::URL
+install JSON
+install Data::Dumper
+
 ----------------------------------------------
 
 export_all_accounts_in_non_internal_safes.pl
