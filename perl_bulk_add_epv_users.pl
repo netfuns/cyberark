@@ -11,13 +11,32 @@ use URI::URL;
 use JSON;
 use Data::Dumper;
 
-open USERLIST , "userlist.txt";
 
-my $CYBR_URL = "https://192.168.203.11";
-my $CYBR_username = "administrator";
-my $CYBR_password = "Cyberark1";
-my $CYBR_initialpassword = "Cyberark1";
+print "Enter your PVWA IP: ";
+my $CYBR_URL = <STDIN>;
+chomp $CYBR_URL;
+$CYBR_URL = "https://".$CYBR_URL;
 
+print "Enter your PVWA Username: ";
+my $CYBR_username = <STDIN>;
+chomp $CYBR_username;
+
+print "Enter your PVWA Password: ";
+use Term::ReadKey;
+ ReadMode('noecho');
+ my $CYBR_password = ReadLine(0);
+ chomp($CYBR_password);
+ReadMode(0);
+
+print "\nEnter your file name, the file should be in same folder with the script: ";
+my $importfilename = <STDIN>;
+chomp $importfilename;
+open USERLIST , $importfilename;
+
+
+print "Enter the default password for the users: ";
+my $CYBR_initialpassword = <STDIN>;
+chomp $CYBR_initialpassword;
 
   my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 0},);
      $ua->agent("Mozilla/8.0"); 
