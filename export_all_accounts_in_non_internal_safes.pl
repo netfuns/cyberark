@@ -1,3 +1,4 @@
+
 use LWP;
 use Encode;
 use LWP::Simple;
@@ -10,9 +11,24 @@ use URI::URL;
 use JSON;
 use Data::Dumper;
 
-my $CYBR_URL = "https://192.168.203.11";
-my $CYBR_username = "administrator";
-my $CYBR_password = "Cyberark1";
+
+print "Enter your PVWA IP: ";
+my $CYBR_URL = <STDIN>;
+chomp $CYBR_URL;
+$CYBR_URL = "https://".$CYBR_URL;
+
+print "Enter your PVWA Username: ";
+my $CYBR_username = <STDIN>;
+chomp $CYBR_username;
+
+print "Enter your PVWA Password: ";
+use Term::ReadKey;
+ ReadMode('noecho');
+ my $CYBR_password = ReadLine(0);
+ chomp($CYBR_password);
+ReadMode(0);
+
+print "\nThe default file path should be in current folder. ";
 
 
   my $ua = LWP::UserAgent->new(ssl_opts => { verify_hostname => 0},);
@@ -29,10 +45,10 @@ my $CYBR_password = "Cyberark1";
   
     my $req = HTTP::Request->new('POST' => $login_url);
     $req->content_type('application/json; charset=UTF-8')  
-      ;    #postè¯·æ±‚,å¦‚æžœæœ‰å‘é€å‚æ•°ï¼Œå¿…é¡»è¦æœ‰è¿™å¥  
-    $req->content("$json_string");    #å‘é€postçš„å‚æ•°  
+      ;    #postÇëÇó,Èç¹ûÓÐ·¢ËÍ²ÎÊý£¬±ØÐëÒªÓÐÕâ¾ä  
+    $req->content("$json_string");    #·¢ËÍpostµÄ²ÎÊý  
     my $res = $ua->request($req);  
-    my $auth_header_value = $res->content();            #èŽ·å–çš„æ˜¯å“åº”æ­£æ–‡
+    my $auth_header_value = $res->content();            #»ñÈ¡µÄÊÇÏìÓ¦ÕýÎÄ
     $auth_header_value=~s/"//g;
 
 ##list all safes #####
@@ -79,7 +95,7 @@ for my $item(@{$obj->{'value'}})
 {                                                                                                                                               
  my $accounts_id = $item->{'id'};
  my $accounts_name = $item->{'name'};                                                                                                               
- my $accounts_address = $item->{'address'};                                                                                                               
+ my $accounts_address = $item->{'address'};       
  my $accounts_userName = $item->{'userName'};                                                                                                               
  my $accounts_platformId = $item->{'platformId'};                                                                                                               
  my $accounts_safeName = $item->{'safeName'};                                                                                                               
