@@ -9,4 +9,4 @@ The output.csv will be placed in the working folder.
 DEBUG:
 
 Please mention if you can access the PVWA with IP, or  you have to access PVWA by using FQDN.
-<img src="./images/debug.png"/>
+<img src="./images/error.png"/>
