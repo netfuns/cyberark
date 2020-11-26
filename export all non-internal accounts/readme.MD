@@ -6,3 +6,7 @@ Or you can download export_accounts.zip to run export_accounts.exe directly in W
 
 The output.csv will be placed in the working folder.
 
+DEBUG:
+
+Please mention if you can access the PVWA with IP, or  you have to access PVWA by using FQDN.
+<img src="./images/debug.png"/>
